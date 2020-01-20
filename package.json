@@ -1,0 +1,24 @@
+{
+  "name": "mvv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development webpak-dev-server --open & nodemon server/server.js",
+    "build": "NODE_ENV=production webpack",
+    "start": "node server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
