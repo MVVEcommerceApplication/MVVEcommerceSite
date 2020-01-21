@@ -22,6 +22,7 @@ class App extends Component {
       <div>
         <Hamburger />
         <NavDropDown />
+        <h2>MVV Fashion Shop</h2>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={ShoppingCart} />
