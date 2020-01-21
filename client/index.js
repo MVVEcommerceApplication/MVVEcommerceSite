@@ -6,7 +6,9 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-import App from './components/App.jsx';
+import App from './App.jsx';
+import './styles.css';
+
 
 render(
   <App />,
