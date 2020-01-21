@@ -10,7 +10,10 @@ import App from './App.jsx';
 import './styles.css';
 
 
+// Render Main Application
 render(
-  <App />,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root'),
 );
