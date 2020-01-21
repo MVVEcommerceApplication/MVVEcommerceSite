@@ -26,3 +26,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#singleItem {
+    width: 19em;
+    border: 1px solid white;
+    text-align: center;
+}
