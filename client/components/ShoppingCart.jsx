@@ -24,10 +24,10 @@ const ShoppingCart = () => {
 
       </div>
       <div>
-        <button>Proceed to Checkout</button>
+        <h5>subtotal: </h5>
       </div>
       <div>
-        <h5>subtotal: </h5>
+        <button>Proceed to Checkout</button>
       </div>
     </div>
   );

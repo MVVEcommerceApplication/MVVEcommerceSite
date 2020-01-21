@@ -21,7 +21,6 @@ class App extends Component {
     return (
       <div>
         <Hamburger />
-        <NavDropDown />
         <h2>MVV Fashion Shop</h2>
         <Switch>
           <Route exact path="/" component={Home} />
