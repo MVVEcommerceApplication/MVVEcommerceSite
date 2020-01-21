@@ -10,6 +10,7 @@ import {
 import ShoppingCart from './ShoppingCart.jsx';
 import NavDropDown from './NavDropDown.jsx';
 import Home from './Home.jsx';
+import Hamburger from './Hamburger.jsx';
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Hamburger />
         <NavDropDown />
         <Switch>
           <Route exact path="/" component={Home} />
