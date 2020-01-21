@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Login from './Login.jsx';
-import Signup from './Signup.jsx';
+import Login from './Authentication/Login.jsx/index.js';
+import Signup from './Authentication/Signup.jsx/index.js';
 
 class App extends Component {
   constructor() {
