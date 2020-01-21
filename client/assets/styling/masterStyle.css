@@ -1,0 +1,28 @@
+body {
+    background-color: pink;
+    padding: 1.7em;
+}
+
+.Main {
+
+}
+
+.topNavigation {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.topNavigation button{
+    font-size: xx-large;
+}
+.topNavigation a{
+    font-size: xx-large;
+}
+
+#MainBodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
