@@ -2,16 +2,19 @@
 import React, { useState, useEffect } from 'react';
 
 const ShoppingCartProduct = (props) => (
-        <div>
+        <div id="singleItem">
             <h3>
                 {props.itemName}
                 <br />
+                <hr />
                 {props.description}
                 <br />
+                <hr />
                 quantity:
 {' '}
 {props.quantity}
                 <br />
+                <hr />
                 Price: $
 {props.price}
 
