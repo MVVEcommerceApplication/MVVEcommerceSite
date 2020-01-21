@@ -27,11 +27,11 @@ module.exports = {
     ],
   },
   devServer: {
-    publicPath: '/build/',
     port: 8080,
     proxy: {
       '/': 'http://localhost:3000',
     },
     contentBase: './client',
+    publicPath: '/build',
   },
 };

@@ -8,7 +8,7 @@ class Login extends Component {
         <input id='usernameInput' placeholder='username' type='text' defaultValue={this.props.username} />
         <br />
         <input id='passwordInput' placeholder='password' type='text' defaultValue={this.props.password} />
-        <br  />
+        <br />
         <button type ='button' className='clickable' onClick={() => this.props.getData()}>SUBMIT</button>
       </div>
     );
