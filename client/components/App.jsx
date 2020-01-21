@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Login from './Login.jsx';
+import Signup from './Signup.jsx';
 
 class App extends Component {
   constructor() {
@@ -10,6 +11,8 @@ class App extends Component {
     return (
       <div>
         <h1> Hello React App!!</h1>
+        <Login />
+        <Signup />
       </div>
     );
   }
