@@ -8,7 +8,10 @@ import {
 } from 'react-router-dom';
 import App from './components/App.jsx';
 
+// Render Main Application
 render(
-  <App />,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root'),
 );
