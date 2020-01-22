@@ -7,6 +7,8 @@ import {
   Link,
 } from 'react-router-dom';
 import App from './components/App.jsx';
+import './styles.css';
+
 
 // Render Main Application
 render(

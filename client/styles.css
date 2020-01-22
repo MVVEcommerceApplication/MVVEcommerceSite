@@ -1,0 +1,33 @@
+.header {
+  background-color: #f8dec9;
+  text-align: center;
+  padding: 1.5em;
+  width: 100%;
+
+}
+/* .container {
+  display: flex;
+  flex-direction: row;
+} */
+.productBox {
+  border: .5px black solid;
+  background-color: pink;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  padding: 10px;
+}
+
+.productBox img {
+  width: 10%;
+  height: 10%;
+  background-color: pink;
+  position: center;
+}
+
+.productBox button {
+  background-color: white;
+}
+
