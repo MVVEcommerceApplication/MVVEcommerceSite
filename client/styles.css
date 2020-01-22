@@ -9,25 +9,34 @@
   display: flex;
   flex-direction: row;
 } */
+
+#MainBodyContainer {
+  display: flex;
+  /* grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 33.3% 33.3% 33.3%; */
+}
+
 .productBox {
-  border: .5px black solid;
-  background-color: pink;
-  width: auto;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  border: .5px black solid;
+  margin: 15px;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
+  box-shadow: 3px 3px 5px -1px rgb(61, 119, 119);
+  background-color: pink;
 }
 
 .productBox img {
-  width: 10%;
-  height: 10%;
+  width: 20%;
+  height: 20%;
   background-color: pink;
   position: center;
+  padding-top: 5px;
 }
 
 .productBox button {
   background-color: white;
+  border-radius: 55px;
 }
 
