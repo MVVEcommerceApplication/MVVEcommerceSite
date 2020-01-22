@@ -67,8 +67,8 @@ userControllers.verifyUser = (req, res, next) => {
             return next({ log: err.stack, message: 'Error executing the query in verifyUser'});
         }
 
-        res.locals.verified = result.rows;
-        console.log(result.rows);
+        res.locals.verified = result.rows[0];
+        console.log('result.rows[0]', result.rows[0]);
         return next();
     });
 }

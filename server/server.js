@@ -14,8 +14,9 @@ app.post('/signup', userControllers.createUser, (req, res, next) => {
   res.status(200).send('signup successful');
 });
 
-app.get('/login', userControllers.verifyUser, (req, res, next) => {
-  res.status(200).send('login successful');
+
+app.post('/login', userControllers.verifyUser, (req, res, next) => {
+  res.status(200).json(res.locals.verified);
 });
 
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
