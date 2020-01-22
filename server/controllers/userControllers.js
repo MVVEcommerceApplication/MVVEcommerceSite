@@ -17,7 +17,7 @@ userControllers.createUser = (req, res, next) => {
     //extracting user input details from req.body
     let { firstname, lastname, password, email } = req.body
 
-    console.log("from userController.createUser req.body: ", req.body);
+    // console.log("from userController.createUser req.body: ", req.body);
 
     //hasshing password prior sending the db query
     hashPassword(password)
@@ -27,23 +27,29 @@ userControllers.createUser = (req, res, next) => {
         })
         .then(() => {
 
-            console.log('hashedpassword from create user: ', password_hashed)
+            // console.log('hashedpassword from create user: ', password_hashed)
 
             //add new user to our database
-            const createUserQuery = `INSERT INTO "user"(first_name, last_name, password, email) VALUES ('${firstname}', '${lastname}', '${password_hashed}','${email}');`
+            const createUserQuery = `INSERT INTO customer (first_name, last_name, password, email) VALUES ('${firstname}', '${lastname}', '${password_hashed}','${email}') RETURNING *;`
 
-
-            db.query(createUserQuery, (err, result) => {
-                if (err) {
-                    return next({ log: err.stack, message: 'Error executing query in createUser' });
-                }
-                res.locals.create = result.rows;
-                return next();
-            });
-
+        db.query(createUserQuery)
+            .then(result => {
+              res.locals.create = result.rows[0];
+              next();
+            })
+            .catch(err => {
+              console.log(err);
+              return next({ log: err.stack, message: 'Error executing query in createUser' });
+            })
         })
 }
 
+userControllers.saveShippingInfo = (req, res, next) => {
+    //extracting user input details from req.body
+    let { firstname, lastname, password, email } = req.body
+
+    console.log("from userController.createUser req.body: ", req.body);
+}
 
 /**
  * @summary Helper function for Hashing Password with bcrypt before saving to the Database

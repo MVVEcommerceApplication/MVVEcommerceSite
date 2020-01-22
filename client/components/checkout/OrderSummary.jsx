@@ -4,7 +4,7 @@ import CheckoutTotals from './CheckoutTotals.jsx';
 
 function OrderSummary() {
   return (
-    <div style={{backgroundColor: "#dae0e0"}}>
+    <div>
       <CheckoutProductList />
       <CheckoutTotals />
     </div>

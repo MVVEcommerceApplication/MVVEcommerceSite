@@ -11,7 +11,7 @@ import CheckoutNavBar from './CheckoutNavBar.jsx';
 
 function CheckoutContainer() {
   return (
-    <div style={{backgroundColor: "#f0f5f5"}}>
+    <div className="singleItem">
       <CheckoutNavBar />
       <OrderSummary />
       <ContactInfo />

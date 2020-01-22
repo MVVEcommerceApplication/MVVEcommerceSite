@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function CheckoutNavBar() {
   return (
-    <div style={{backgroundColor: "#e1e8e8"}}>
+    <div>
       <nav>
         <Link to="/cart">
           <span>
