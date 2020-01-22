@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(254, 236, 217);
     padding: 1.7em;
 }
 
@@ -16,7 +16,7 @@ body {
 .topNavigation button{
     font-size: xx-large;
 }
-.topNavigation a{
+.topNavigation span{
     font-size: xx-large;
 }
 
@@ -29,6 +29,6 @@ body {
 
 #singleItem {
     width: 19em;
-    border: 1px solid white;
+    border: 2px solid white;
     text-align: center;
 }
