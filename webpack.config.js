@@ -34,5 +34,6 @@ module.exports = {
       '/': 'http://localhost:3000',
     },
     contentBase: './client',
+    publicPath: '/build',
   },
 };
