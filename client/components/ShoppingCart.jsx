@@ -22,7 +22,6 @@ const ShoppingCart = () => {
           quantity={currentProducts[0].quantity}
           price={currentProducts[0].price}
         />
-
       </div>
       <div>
         <h5>subtotal: </h5>
