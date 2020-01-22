@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import CheckoutContainer from './checkout/CheckoutContainer.jsx';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -37,9 +38,10 @@ class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/cart" component={ShoppingCart} />
-            <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/cart" component={ShoppingCart} />
+            <Route exact path="/checkout" component={CheckoutContainer} />
           </Switch>
         </div>
       </div>
