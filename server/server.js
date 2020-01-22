@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser')
 
 const app = express();
 const port = 3000;
 
 const userControllers = require('./controllers/userControllers');
+
+app.use(bodyParser.json())
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
   // after successful signup will redirect to main page or to login

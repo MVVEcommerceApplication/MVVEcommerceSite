@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import App from './components/App.jsx';
 import store from './store';
+import './styles.css';
 
 
 // Render Main Application
