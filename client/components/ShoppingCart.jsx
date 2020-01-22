@@ -1,25 +1,27 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component, useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import ShoppingCartProduct from './product/ShoppingCartProduct.jsx';
+import * as actions from '../actions/actions';
 
+const mapStateToProps = (state) => ({
+  // add pertinent state here
+  // someData
+  // quantity: state.quantity,
+  ...state,
+});
+  // const mapStateToProps = (state) => {
+  //   console.log('im the state:', state);
+  //   return { foo: state.store.quantity };
+  // };
+const mapDispatchToProps = (dispatch) => ({
+  // create functions that will dispatch action creators
+  addQuantity: (quantity) => dispatch(actions.addQuantity(quantity)),
+});
 
 class ShoppingCart extends Component {
-  constructor() {
-    super();
-    this.state = {
-      itemName: 'Tote Bag',
-      description: 'Designed for anything from grocery shopping to running every day errands, totes are simply a staple of the modern world.',
-      quantity: 0,
-      price: 14.77,
-
-    };
-    this.incCount = this.incCount.bind(this);
-  }
-
-  incCount() {
-    console.log('COUNTER BUTTON CLICKED!');
-    this.setState({
-      quantity: this.state.quantity + 1,
-    });
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -28,10 +30,10 @@ class ShoppingCart extends Component {
         <h1>Shopping Cart</h1>
         <div>
           <ShoppingCartProduct
-            itemName={this.state.itemName}
-            description={this.state.description}
-            quantity={this.state.quantity}
-            price={this.state.price}
+            itemName={this.props.store.itemName}
+            description={this.props.store.description}
+            quantity={this.props.store.quantity}
+            price={this.props.store.price}
           />
         </div>
         <div>
@@ -44,9 +46,9 @@ class ShoppingCart extends Component {
         </div>
         <button
           type="button"
-          onClick={() => this.incCount()}
+          onClick={() => this.props.addQuantity(5)}
         >
-          {`Counter ${this.state.quantity}`}
+          Increment Quantity
         </button>
       </div>
     );
@@ -54,4 +56,4 @@ class ShoppingCart extends Component {
 }
 
 
-export default ShoppingCart;
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);
