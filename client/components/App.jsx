@@ -1,6 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import CheckoutContainer from './checkout/CheckoutContainer.jsx';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -8,13 +7,14 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
+import CheckoutContainer from './checkout/CheckoutContainer.jsx';
 import ShoppingCart from './ShoppingCart.jsx';
 import NavDropDown from './NavDropDown.jsx';
 import Home from './Home.jsx';
 import Hamburger from './Hamburger.jsx';
 import style from '../assets/styling/masterStyle.css';
-import Signup from '../components/Authentication/Signup.jsx';
-import Login from '../components/Authentication/Login.jsx';
+import Signup from './Authentication/Signup.jsx';
+import Login from './Authentication/Login.jsx';
 
 class App extends Component {
   constructor() {
