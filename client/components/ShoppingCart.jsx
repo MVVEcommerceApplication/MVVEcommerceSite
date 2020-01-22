@@ -1,38 +1,63 @@
-import React, { Component, useState } from 'react';
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component, useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import ShoppingCartProduct from './product/ShoppingCartProduct.jsx';
+import * as actions from '../actions/actions';
 import { Link } from 'react-router-dom';
 
-// eslint-disable-next-line arrow-body-style
-const ShoppingCart = () => {
-//   const x = 0;
-  const [currentProducts, updateCurrent] = useState([{
-    itemName: 'Tote Bag',
-    description: 'Designed for anything from grocery shopping to running every day errands, totes are simply a staple of the modern world.',
-    quantity: 3,
-    price: 14.77,
-  }]);
+const mapStateToProps = (state) => ({
+  // add pertinent state here
+  // someData
+  // quantity: state.quantity,
+  ...state,
+});
+  // const mapStateToProps = (state) => {
+  //   console.log('im the state:', state);
+  //   return { foo: state.store.quantity };
+  // };
+const mapDispatchToProps = (dispatch) => ({
+  // create functions that will dispatch action creators
+  addQuantity: (quantity) => dispatch(actions.addQuantity(quantity)),
+});
 
-  return (
-    <div>
-      <h1>Shopping Cart</h1>
+class ShoppingCart extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
       <div>
-        <ShoppingCartProduct
-          itemName={currentProducts[0].itemName}
-          description={currentProducts[0].description}
-          quantity={currentProducts[0].quantity}
-          price={currentProducts[0].price}
-        />
-      </div>
-      <div>
-        <h5>subtotal: </h5>
-      </div>
-      <div>
+        <h1>Shopping Cart</h1>
+        <div>
+          <ShoppingCartProduct
+            itemName={this.props.store.itemName}
+            description={this.props.store.description}
+            quantity={this.props.store.quantity}
+            price={this.props.store.price}
+          />
+        </div>
+        <div>
+          <h5>subtotal: </h5>
+        </div>
+        <div>
+          <button type="button">
+            Proceed to Checkout
+          </button>
+        </div>
+        <button
+          type="button"
+          onClick={() => this.props.addQuantity(5)}
+        >
+          Increment Quantity
+        </button>
       <Link to="/checkout">
       <button>Proceed to checkout</button>
       </Link>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default ShoppingCart;
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);

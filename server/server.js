@@ -20,6 +20,15 @@ app.post('/checkout', (req, res) => {
 
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
 
+// fixes react router re-render issues
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../index.html'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
 app.use('/', (err, req, res, next) => {
   const defaultErrObj = {
     log: 'Unknown server error',
