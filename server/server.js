@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-const { userControllers } = require('./controllers/userControllers')
+const userControllers = require('./controllers/userControllers')
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
     //after successful signup will redirect to main page or to login
