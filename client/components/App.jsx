@@ -47,11 +47,9 @@ class App extends Component {
         <div className="Main">
           <div className="topNavigation">
             <Hamburger />
-            <a href="/">
-              <Link to="/cart">
-                <span className="glyphicon glyphicon-shopping-cart" />
-              </Link>
-            </a>
+            <Link to="/cart">
+              <span className="glyphicon glyphicon-shopping-cart" />
+            </Link>
           </div>
           <div id="MainBodyContainer">
             <div>
