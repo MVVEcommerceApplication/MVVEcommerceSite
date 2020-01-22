@@ -13,6 +13,7 @@ import Home from './Home.jsx';
 import Hamburger from './Hamburger.jsx';
 import style from '../assets/styling/masterStyle.css';
 import Signup from '../components/Authentication/Signup.jsx';
+import Login from '../components/Authentication/Login.jsx';
 
 class App extends Component {
   constructor() {
@@ -38,6 +39,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/cart" component={ShoppingCart} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </div>
       </div>

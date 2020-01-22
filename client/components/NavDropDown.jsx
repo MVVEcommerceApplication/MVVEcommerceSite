@@ -19,6 +19,7 @@ const NavDropDown = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cart">Shopping Cart</Link></li>
           <li><Link to="/signup">Sign-Up</Link></li>
+          <li><Link to="/login">Log-In</Link></li>
         </ul>
       </nav>
     </div>
