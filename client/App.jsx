@@ -18,14 +18,26 @@ class App extends Component {
   }
 
   render() {
+    const styles = {
+      container: {
+        border: '1px black solid',
+        width: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '10px',
+      },
+    };
     return (
       <div>
+        <div className="header" />
         <Hamburger />
-        <h2>MVV Fashion Shop</h2>
+        <div className="main-content" />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={ShoppingCart} />
         </Switch>
+
       </div>
     );
   }
