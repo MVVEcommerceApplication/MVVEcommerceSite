@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import ShoppingCartProduct from './product/ShoppingCartProduct.jsx';
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line arrow-body-style
 const ShoppingCart = () => {
@@ -21,13 +22,14 @@ const ShoppingCart = () => {
           quantity={currentProducts[0].quantity}
           price={currentProducts[0].price}
         />
-
       </div>
       <div>
         <h5>subtotal: </h5>
       </div>
       <div>
-        <button>Proceed to Checkout</button>
+      <Link to="/checkout">
+      <button>Proceed to checkout</button>
+      </Link>
       </div>
     </div>
   );
