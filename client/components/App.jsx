@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import CheckoutContainer from './checkout/CheckoutContainer.jsx';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -17,6 +18,8 @@ import style from '../assets/styling/masterStyle.css';
 import reducers from '../reducers/index.js';
 import storeReducer from '../reducers/storeReducer.js';
 import * as actions from '../actions/actions';
+import Signup from '../components/Authentication/Signup.jsx';
+import Login from '../components/Authentication/Login.jsx';
 
 const mapStateToProps = (state) => ({
   // add pertinent state here
@@ -55,11 +58,14 @@ class App extends Component {
             <div>
               <h2>MVV Fashion Shop</h2>
             </div>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/cart" component={ShoppingCart} />
-            </Switch>
           </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/cart" component={ShoppingCart} />
+            <Route exact path="/checkout" component={CheckoutContainer} />
+          </Switch>
         </div>
       </Router>
     );

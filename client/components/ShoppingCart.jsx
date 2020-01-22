@@ -3,6 +3,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ShoppingCartProduct from './product/ShoppingCartProduct.jsx';
 import * as actions from '../actions/actions';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
   // add pertinent state here
@@ -50,6 +51,9 @@ class ShoppingCart extends Component {
         >
           Increment Quantity
         </button>
+      <Link to="/checkout">
+      <button>Proceed to checkout</button>
+      </Link>
       </div>
     );
   }
