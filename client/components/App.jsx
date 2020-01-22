@@ -21,15 +21,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1> Hello React App!!</h1>
-        <div>
-          <CheckoutContainer />
-        </div>
         <Hamburger />
         <h2>MVV Fashion Shop</h2>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={ShoppingCart} />
+          <Route exact path="/checkout" component={CheckoutContainer} />
         </Switch>
       </div>
     );
