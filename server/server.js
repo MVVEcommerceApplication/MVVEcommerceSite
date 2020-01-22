@@ -14,6 +14,10 @@ app.post('/signup', userControllers.createUser, (req, res, next) => {
   res.status(200).send('signup successful');
 });
 
+app.get('/login', userControllers.verifyUser, (req, res, next) => {
+  res.status(200).send('login successful');
+});
+
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
 
 // fixes react router re-render issues
