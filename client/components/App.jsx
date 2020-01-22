@@ -10,9 +10,9 @@ import {
 import ShoppingCart from './ShoppingCart.jsx';
 import NavDropDown from './NavDropDown.jsx';
 import Home from './Home.jsx';
-import Hamburger from './Hamburger.jsx';  
-import Login from './Authentication/Login.jsx';
-import Signup from './Authentication/Signup.jsx';
+import Hamburger from './Hamburger.jsx';
+import style from '../assets/styling/masterStyle.css';
+import Signup from '../components/Authentication/Signup.jsx';
 
 class App extends Component {
   constructor() {
@@ -21,15 +21,25 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Hamburger />
-        <h2>MVV Fashion Shop</h2>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/cart" component={ShoppingCart} />
-        </Switch>
-        <Login />
-        <Signup />
+      <div className="Main">
+        <div className="topNavigation">
+          <Hamburger />
+          <a href="/">
+            <Link to="/cart">
+              <span className="glyphicon glyphicon-shopping-cart" />
+            </Link>
+          </a>
+        </div>
+        <div id="MainBodyContainer">
+          <div>
+            <h2>MVV Fashion Shop</h2>
+          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/cart" component={ShoppingCart} />
+            <Route exact path="/signup" component={Signup} />
+          </Switch>
+        </div>
       </div>
     );
   }

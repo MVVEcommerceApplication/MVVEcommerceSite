@@ -12,8 +12,6 @@ class Signup extends Component {
         <br />
         <input id='lastNameInput' placeholder='Last Name' type='text' defaultValue={this.props.lastName} />
         <br />
-        <input id='userAddress' placeholder='Address' type='text' defaultValue={this.props.userAddress} />
-        <br />
         <input id='userEmail' placeholder='Email' type='text' defaultValue={this.props.email} />
         <br />
         <button type ='button' className='clickable' onClick={() => this.props.getData()}>SIGN UP</button>
