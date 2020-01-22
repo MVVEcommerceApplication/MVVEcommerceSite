@@ -1,74 +1,33 @@
-/* * {
-  box-sizing: border-box;
-  font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
-  margin: 0;
-  padding: 0;
-  color:lightblue;
-  background-color: #ffffff
-} */
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 100%;
-}
-
-html,
-body {
-  min-height: 100%;
-  min-height: 100vh;
-}
-
-body {
-  font: 16px 'Roboto', Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  background: #f6f6f6;
-}
-
-.homepage {
-  max-width: 60rem;
+.header {
+  background-color: #f8dec9;
+  text-align: center;
+  padding: 1.5em;
   width: 100%;
-  background: lightgray;
-  padding: 1rem;
-  font-size: 1rem;
+
+}
+/* .container {
+  display: flex;
+  flex-direction: row;
+} */
+.productBox {
+  border: .5px black solid;
+  background-color: pink;
+  width: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex-grow: 1;
   align-items: center;
-  height: 100%;
-  min-height: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  > header,
-  > main,
-  > footer {
-    width: 100%;
-    padding: 1rem;
-    margin: .5rem 1rem;
-    text-align: center;
-    transition: 200ms;
-    &:hover {
-      box-shadow: 0 0 2rem gray;
-    }
-  }
-  > header {
-    display: block;
-    color: white;
-    background: gray;
-    text-transform: uppercase;
-  }
-  > main {
-    flex: 1 1 auto;
-    color: white;
-    background: #333;
-  }
-  > footer {
-    background: white;
-  }
+  padding: 10px;
 }
+
+.productBox img {
+  width: 10%;
+  height: 10%;
+  background-color: pink;
+  position: center;
+}
+
+.productBox button {
+  background-color: white;
+}
+
