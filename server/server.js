@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
   // after successful signup will redirect to main page or to login
-  res.status(200).send('signup successful');
+  res.status(200).json('signup successful');
 });
 
 

@@ -52,6 +52,7 @@ userControllers.createUser = (req, res, next) => {
                     return next({ log: err.stack, message: 'Error executing query in createUser' });
                 }
                 res.locals.create = result.rows;
+                //console.log('result.rows[0]', result.rows[0]);
                 return next();
             });
 

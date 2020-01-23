@@ -53,10 +53,6 @@ class Login extends Component {
     })
   }
 
-  // handleSubmit({state}) {
-
-  // }
-
   render() {
     return (
       <div id='loginContainer'>
