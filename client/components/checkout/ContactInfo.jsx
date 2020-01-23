@@ -37,6 +37,11 @@ function ContactInfo() {
           <input type="submit" value="Register" />
         </form>
       </div>
+      <div>
+        <button onClick={e => {
+          history.push('/checkout/shipping');
+        }}>Checkout as guest</button>
+      </div>
     </div>
   );
 }

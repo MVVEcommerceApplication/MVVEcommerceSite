@@ -21,7 +21,6 @@ app.post('/signup', userControllers.createUser, (req, res, next) => {
 app.post('/login', userControllers.verifyUser, (req, res, next) => {
   res.status(200).json(res.locals.verified);
     //after successful signup will redirect to main page or to login
-    res.status(200).send(res.locals.create);
 })
 
 app.post('/checkout/information', (req, res) => {
@@ -29,30 +28,8 @@ app.post('/checkout/information', (req, res) => {
   res.status(200).json({ 'THE EMAIL YOU SENT ME WAS': email });
 });
 
-app.post('/checkout/shipping', (req, res) => {
-  const {
-    firstName,
-    lastName,
-    address,
-    apartment,
-    city,
-    state,
-    country,
-    zip,
-    phone,
-  } = req.body;
-  console.log(firstName, lastName, address, apartment, city, state, country, zip, phone);
-  res.status(200).json({
-    'THE FIRST NAME YOU SENT ME WAS:': firstName,
-    'THE LAST NAME YOU SENT ME WAS:': lastName,
-    'THE ADDRESS YOU SENT ME WAS:': address,
-    'THE APARTMENT YOU SENT ME WAS:': apartment,
-    'THE CITY YOU SENT ME WAS:': city,
-    'THE STATE YOU SENT ME WAS': state,
-    'THE COUNTRY YOU SENT ME WAS:': country,
-    'THE ZIP YOU SENT ME WAS:': zip,
-    'THE PHONE YOU SENT ME WAS:': phone,
-  });
+app.post('/checkout/shipping', userControllers.saveShippingInfo, (req, res) => {
+  res.status(200).send(res.locals.create);
 });
 
 // read products from database endpoints

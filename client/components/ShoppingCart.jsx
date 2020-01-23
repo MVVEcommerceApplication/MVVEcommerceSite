@@ -40,11 +40,6 @@ class ShoppingCart extends Component {
         <div>
           <h5>subtotal: </h5>
         </div>
-        <div>
-          <button type="button">
-            Proceed to Checkout
-          </button>
-        </div>
         <button
           type="button"
           onClick={() => this.props.addQuantity(5)}
