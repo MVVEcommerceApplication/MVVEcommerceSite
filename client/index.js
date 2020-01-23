@@ -10,13 +10,13 @@ import {
 } from 'react-router-dom';
 import App from './components/App.jsx';
 import store from './store';
-import './styles.css';
+import './assets/styling/styles.css';
 
 
 // Render Main Application
 render(
   <Provider store={store}>
-      <App />
+    <App />
   </Provider>,
   document.getElementById('root'),
 );

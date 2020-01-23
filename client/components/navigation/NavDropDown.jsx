@@ -5,8 +5,8 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-import Home from './Home.jsx';
-import ShoppingCart from './ShoppingCart.jsx';
+import Home from '../Home.jsx';
+import ShoppingCart from '../product/ShoppingCart.jsx';
 
 // eslint-disable-next-line arrow-body-style
 const NavDropDown = () => {
