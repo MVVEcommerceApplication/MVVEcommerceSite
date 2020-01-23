@@ -5,6 +5,8 @@ const initialState = {
   description: 'Designed for anything from grocery shopping to running every day errands, totes are simply a staple of the modern world.',
   price: 14.77,
   quantity: 0,
+  products: [],
+  userShoppingCart: [],
 };
 
 const storeReducer = (state = initialState, action) => {
@@ -13,13 +15,22 @@ const storeReducer = (state = initialState, action) => {
       console.log('REDUCER HAS BEEN CLICKED');
       // increment quanity
       const quantity = state.quantity + action.payload;
-
-      console.log('NEW QUANTITY FROM REDUCER:', quantity);
-      console.log('PAYLOAD', action.payload);
+     
       // return updated state
       return {
         ...state,
         quantity,
+      };
+
+      // hydrate store reduce
+    case types.HYDRATE_STORE:
+
+      // combine current products with products incoming
+      const products = [...action.payload];
+
+      return {
+        ...state,
+        products,
       };
 
     default:
