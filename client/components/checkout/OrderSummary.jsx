@@ -4,7 +4,7 @@ import CheckoutTotals from './CheckoutTotals.jsx';
 
 function OrderSummary() {
   return (
-    <div>
+    <div>Order Summary
       <CheckoutProductList />
       <CheckoutTotals />
     </div>

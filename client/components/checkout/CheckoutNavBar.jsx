@@ -5,15 +5,23 @@ function CheckoutNavBar() {
   return (
     <div>
       <nav>
-        <Link to="/cart">
+        <Link to="/checkout/information">
           <span>
-          Cart
+          Information
           </span>
         </Link>
-        >
-       <a>Information</a> >
-       <a>Shipping</a> >
-       <a>Payment</a>
+        &nbsp; > &nbsp;
+        <Link to="/checkout/shipping">
+          <span>
+          Shipping
+          </span>
+        </Link>
+        &nbsp; > &nbsp;
+        <Link to="/checkout/payment">
+          <span>
+          Payment
+          </span>
+        </Link>
       </nav>
     </div>
   );

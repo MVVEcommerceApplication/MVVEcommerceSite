@@ -15,7 +15,8 @@ app.post('/signup', userControllers.createUser, (req, res, next) => {
 })
 
 app.post('/checkout', (req, res) => {
-  res.status(200).send('you found me');
+  const { email } = req.body;
+  res.status(200).json({ 'THE EMAIL YOU SENT ME WAS': email });
 });
 
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
