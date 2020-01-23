@@ -1,22 +1,26 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = 3000;
 
 const userControllers = require('./controllers/userControllers');
-const productsController = require('./controllers/productsControllers');
+const productsControllers = require('./controllers/productsControllers');
+const cookieControllers = require('./controllers/cookieControllers');
+const sessionControllers = require('./controllers/sessionControllers');
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 
+// root, send index.html
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
   // after successful signup will redirect to main page or to login
   res.status(200).json('signup successful');
 });
-
 
 app.post('/login', userControllers.verifyUser, (req, res, next) => {
   res.status(200).json(res.locals.verified);
@@ -56,7 +60,7 @@ app.post('/checkout/shipping', (req, res) => {
 });
 
 // read products from database endpoints
-app.get('/products', productsController.readProducts, (req, res) => {
+app.get('/products', productsControllers.readProducts, (req, res) => {
   res.status(200).json(res.locals.products);
 });
 
@@ -70,6 +74,7 @@ app.get('/*', (req, res) => {
   });
 });
 
+// global catch-all error handler for middleware 
 app.use('/', (err, req, res, next) => {
   const defaultErrObj = {
     log: 'Unknown server error',
