@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   render() {
@@ -7,7 +8,11 @@ class Login extends Component {
       <div id='loginContainer'>
         <h2>Welcome Back!</h2>
         <p>Don't have an account?
-        <button type ='button' className='clickable' onClick={() => this.props.getData()}>Sign Up!</button>
+        <Link to="/signup">
+          <span>
+          Sign-Up!
+          </span>
+        </Link>
         </p>
         <input id='userEmail' placeholder='Email' type='text' defaultValue={this.props.username} />
         <br />
