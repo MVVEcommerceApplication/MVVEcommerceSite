@@ -1,0 +1,42 @@
+.header {
+  background-color: #f8dec9;
+  text-align: center;
+  padding: 1.5em;
+  width: 100%;
+
+}
+/* .container {
+  display: flex;
+  flex-direction: row;
+} */
+
+#MainBodyContainer {
+  display: flex;
+  /* grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 33.3% 33.3% 33.3%; */
+}
+
+.productBox {
+  display: flex;
+  flex-direction: column;
+  border: .5px black solid;
+  margin: 15px;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 3px 3px 5px -1px rgb(61, 119, 119);
+  background-color: pink;
+}
+
+.productBox img {
+  width: 20%;
+  height: 20%;
+  background-color: pink;
+  position: center;
+  padding-top: 5px;
+}
+
+.productBox button {
+  background-color: white;
+  border-radius: 55px;
+}
+

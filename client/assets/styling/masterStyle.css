@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(254, 236, 217);
+    padding: 1.7em;
+}
+
+.Main {
+
+}
+
+.topNavigation {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.topNavigation button{
+    font-size: xx-large;
+}
+.topNavigation span{
+    font-size: xx-large;
+}
+
+#MainBodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.singleItem {
+    width: 19em;
+    border: 2px solid white;
+    text-align: center;
+}
