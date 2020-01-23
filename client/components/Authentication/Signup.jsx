@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Signup extends Component {
@@ -6,7 +7,12 @@ class Signup extends Component {
     return (
       <div id='signUpContainer'>
         <h2>New Here?</h2>
-        <p>Already have an account?<button type ='button' className='clickable' onClick={() => this.props.getData()}>Log In!</button>
+        <p>Already have an account? 
+          <Link to="/login">
+          <span>
+           Login
+          </span>
+        </Link>
         </p>
         <input id='firstNameInput' placeholder='First Name' type='text' defaulValue={this.props.firstName} />
         <br />
