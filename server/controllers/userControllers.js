@@ -71,9 +71,18 @@ userControllers.verifyUser = (req, res, next) => {
 
 userControllers.saveShippingInfo = (req, res, next) => {
     //extracting user input details from req.body
-    let { firstname, lastname, password, email } = req.body
+    const { firstName, lastName, address, apartment, city, stateInUnitedStates, country, zip, phone } = req.body;
+    
+    const saveShippingInfoQuery = `INSERT INTO shipments (first_name, last_name, address, apartment, city, state, country, zip, phone) VALUES ('${firstName}', '${lastName}', '${address}', '${apartment}', '${city}', '${stateInUnitedStates}', '${country}', '${zip}', '${phone}') RETURNING *;`
 
-    console.log("from userController.createUser req.body: ", req.body);
+    db.query(saveShippingInfoQuery, (err, result) => {
+        if (err) {
+            return next({ log: err.stack, message: 'Error executing query in saveShippingInfo' });
+        }
+        res.locals.create = result.rows;
+        return next();
+    });
+
 }
 
 

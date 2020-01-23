@@ -10,13 +10,13 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CheckoutContainer from './checkout/CheckoutContainer.jsx';
-import ShoppingCart from './ShoppingCart.jsx';
-import NavDropDown from './NavDropDown.jsx';
+import ShoppingCart from './product/ShoppingCart.jsx';
+import NavDropDown from './navigation/NavDropDown.jsx';
 import Home from './Home.jsx';
-import Hamburger from './Hamburger.jsx';
+import Hamburger from './navigation/Hamburger.jsx';
 import style from '../assets/styling/masterStyle.css';
-import reducers from '../reducers/index.js';
-import storeReducer from '../reducers/storeReducer.js';
+import reducers from '../reducers/index';
+import storeReducer from '../reducers/storeReducer';
 import * as actions from '../actions/actions';
 import Signup from './Authentication/Signup.jsx';
 import Login from './Authentication/Login.jsx';
