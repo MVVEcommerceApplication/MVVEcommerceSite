@@ -15,6 +15,7 @@
   "dependencies": {
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
     "express": "^4.17.1ls",
     "history": "^4.10.1",
     "path": "^0.12.7",

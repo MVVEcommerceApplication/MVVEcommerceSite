@@ -19,43 +19,18 @@ userControllers.createUser = (req, res, next) => {
 
     // console.log("from userController.createUser req.body: ", req.body);
 
-    //hasshing password prior sending the db query
-    hashPassword(password)
-        .then((hashPassword) => {
-            delete password
-            password_hashed = hashPassword
-        })
-        .then(() => {
+    //hashing password prior sending the db query
+    // hashPassword(password)
+    //     .then((hashPassword) => {
+    //         delete password
+    //         password_hashed = hashPassword
+    //     })
+    //     .then(() => {
+        // console.log('hashedpassword from create user: ', password_hashed)
+    const sessionID = Math.floor(Math.random()*999);
 
-            // console.log('hashedpassword from create user: ', password_hashed)
-
-            //add new user to our database
-            const createUserQuery = `INSERT INTO customer (first_name, last_name, password, email) VALUES ('${firstname}', '${lastname}', '${password_hashed}','${email}') RETURNING *;`
-
-            //     db.query(createUserQuery)
-            //         .then(res => {
-            //             //***CHECK WHY RES.ROWS IS EMPTY ARRAY
-
-            //             console.log("res", res)
-
-            //             // console.log("res", res)
-
-
-            //             next()
-            //         })
-            //         .catch(err => res.status(500).json({ error: err.mesage }))
-            // })
-
-
-            db.query(createUserQuery, (err, result) => {
-                if (err) {
-                    return next({ log: err.stack, message: 'Error executing query in createUser' });
-                }
-                res.locals.create = result.rows;
-                //console.log('result.rows[0]', result.rows[0]);
-                return next();
-            });
-
+    //add new user to our database
+    const createUserQuery = `INSERT INTO customer (first_name, last_name, password, email, session_id) VALUES ('${firstname}', '${lastname}', '${password}','${email}, '${sessionID}') RETURNING *;`
         db.query(createUserQuery)
             .then(result => {
               res.locals.create = result.rows[0];
@@ -65,7 +40,17 @@ userControllers.createUser = (req, res, next) => {
               console.log(err);
               return next({ log: err.stack, message: 'Error executing query in createUser' });
             })
-        })
+
+    // in a cb instead of a promise
+            // db.query(createUserQuery, (err, result) => {
+            //     if (err) {
+            //         return next({ log: err.stack, message: 'Error executing query in createUser' });
+            //     }
+            //     res.locals.create = result.rows;
+            //     //console.log('result.rows[0]', result.rows[0]);
+            //     return next();
+            // });
+        
 }
 
 userControllers.verifyUser = (req, res, next) => {
