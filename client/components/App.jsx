@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
   Link,
@@ -20,6 +20,7 @@ import storeReducer from '../reducers/storeReducer.js';
 import * as actions from '../actions/actions';
 import Signup from './Authentication/Signup.jsx';
 import Login from './Authentication/Login.jsx';
+import history from './Authentication/history'
 
 const mapStateToProps = (state) => ({
   // add pertinent state here
@@ -46,7 +47,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className="Main">
           <div className="topNavigation">
             <Hamburger />

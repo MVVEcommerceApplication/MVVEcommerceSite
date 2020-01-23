@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import history from './history';
 
 
 class Signup extends Component {
@@ -55,6 +56,7 @@ class Signup extends Component {
     .then((res) => res.json())
     .then(() => {
       console.log('Signup was susccessful!');
+      history.push('/');
     })
     .catch((err) =>{
       console.log('Signup was not successful ;(');

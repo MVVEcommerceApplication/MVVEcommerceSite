@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 //import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-
+import {
+  Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
+import history from './history';
 
 class Login extends Component {
   constructor(props){
@@ -47,6 +52,7 @@ class Login extends Component {
     .then((res) => res.json())
     .then(() => {
       console.log('Login was susccessful!');
+      history.push('/');
     })
     .catch((err) =>{
       console.log('Login was not successful, please check username or password.');
