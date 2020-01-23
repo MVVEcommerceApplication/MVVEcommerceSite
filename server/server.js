@@ -13,6 +13,13 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
+  // after successful signup will redirect to main page or to login
+  res.status(200).json('signup successful');
+});
+
+
+app.post('/login', userControllers.verifyUser, (req, res, next) => {
+  res.status(200).json(res.locals.verified);
     //after successful signup will redirect to main page or to login
     res.status(200).send(res.locals.create);
 })
