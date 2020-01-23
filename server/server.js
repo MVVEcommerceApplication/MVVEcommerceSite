@@ -14,9 +14,28 @@ app.post('/signup', userControllers.createUser, (req, res, next) => {
     res.status(200).send(res.locals.create);
 })
 
-app.post('/checkout', (req, res) => {
+app.post('/checkout/information', (req, res) => {
   const { email } = req.body;
   res.status(200).json({ 'THE EMAIL YOU SENT ME WAS': email });
+});
+
+app.post('/checkout/shipping', (req, res) => {
+  const {
+    firstName,
+    lastName,
+    address,
+    apartment,
+    city,
+    country,
+    state,
+    zip,
+    phone,
+  } = req.body;
+  console.log(firstName, lastName);
+  res.status(200).json({
+    'THE FIRST NAME YOU SENT ME WAS:': firstName,
+    'THE LAST NAME YOU SENT ME WAS:': lastName,
+  });
 });
 
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));

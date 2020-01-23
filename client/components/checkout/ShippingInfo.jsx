@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import history from './history';
 
 function ShippingInfo() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    fetch('/checkout/shipping', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ firstName, lastName }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      history.push('/checkout/payment');
+    })
+}
+
   return (
     <div>
     <div>
       <h2>Shipping address</h2>
       <div>
-        <label>First name</label>
+      <form onSubmit={handleSubmit}>
+          <input placeholder="First name" type="text" value={firstName} onChange={e => setFirstName(e.target.value)} />
+          <input placeholder="Last name" type="text" value={lastName} onChange={e => setLastName(e.target.value)} />
+          <input type="submit" value="Continue to payment" />
+        </form>
+        {/* <label>First name</label>
         &nbsp;
-        <input placeholder="First name" type="text"></input>
+        <input placeholder="First name" type="text"></input> */}
       </div>
       <div>
         <label>Last name</label>
