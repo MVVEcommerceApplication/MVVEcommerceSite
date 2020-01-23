@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ShoppingCartProduct = (props) => (
-        <div id="singleItem">
+        <div className="singleItem">
             <h3>
                 {props.itemName}
                 <br />

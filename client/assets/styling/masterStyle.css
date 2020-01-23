@@ -27,7 +27,7 @@ body {
     align-items: center;
 }
 
-#singleItem {
+.singleItem {
     width: 19em;
     border: 2px solid white;
     text-align: center;
