@@ -8,12 +8,12 @@ function ContactInfo() {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         // console.log(email)
-        fetch('/checkout', {
+        fetch('/checkout/information', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({email: email}),
+          body: JSON.stringify({ email }),
         })
         .then(res => res.json())
         .then(data => {
