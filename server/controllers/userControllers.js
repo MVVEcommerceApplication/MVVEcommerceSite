@@ -26,31 +26,32 @@ userControllers.createUser = (req, res, next) => {
     //         password_hashed = hashPassword
     //     })
     //     .then(() => {
-        // console.log('hashedpassword from create user: ', password_hashed)
-    const sessionID = Math.floor(Math.random()*999);
+    // console.log('hashedpassword from create user: ', password_hashed)
+    //const sessionID = Math.floor(Math.random() * 999);
 
     //add new user to our database
-    const createUserQuery = `INSERT INTO customer (first_name, last_name, password, email, session_id) VALUES ('${firstname}', '${lastname}', '${password}','${email}, '${sessionID}') RETURNING *;`
-        db.query(createUserQuery)
-            .then(result => {
-              res.locals.create = result.rows[0];
-              next();
-            })
-            .catch(err => {
-              console.log(err);
-              return next({ log: err.stack, message: 'Error executing query in createUser' });
-            })
+    const createUserQuery = `INSERT INTO customer (first_name, last_name, password, email) VALUES ('${firstname}', '${lastname}', '${password}','${email}') RETURNING *;`
+    db.query(createUserQuery)
+        .then(result => {
+            // console.log('result.rows[0]', result.rows[0]);
+            res.locals.create = result.rows[0];
+            next();
+        })
+        .catch(err => {
+            console.log(err);
+            return next({ log: err.stack, message: 'Error executing query in createUser' });
+        })
 
     // in a cb instead of a promise
-            // db.query(createUserQuery, (err, result) => {
-            //     if (err) {
-            //         return next({ log: err.stack, message: 'Error executing query in createUser' });
-            //     }
-            //     res.locals.create = result.rows;
-            //     //console.log('result.rows[0]', result.rows[0]);
-            //     return next();
-            // });
-        
+    // db.query(createUserQuery, (err, result) => {
+    //     if (err) {
+    //         return next({ log: err.stack, message: 'Error executing query in createUser' });
+    //     }
+    //     res.locals.create = result.rows;
+    //     //console.log('result.rows[0]', result.rows[0]);
+    //     return next();
+    // });
+
 }
 
 userControllers.verifyUser = (req, res, next) => {
@@ -59,8 +60,8 @@ userControllers.verifyUser = (req, res, next) => {
 
 
     db.query(findUserQuery, (err, result) => {
-        if(err){
-            return next({ log: err.stack, message: 'Error executing the query in verifyUser'});
+        if (err) {
+            return next({ log: err.stack, message: 'Error executing the query in verifyUser' });
         }
 
         res.locals.verified = result.rows[0];
@@ -72,7 +73,7 @@ userControllers.verifyUser = (req, res, next) => {
 userControllers.saveShippingInfo = (req, res, next) => {
     //extracting user input details from req.body
     const { firstName, lastName, address, apartment, city, stateInUnitedStates, country, zip, phone } = req.body;
-    
+
     const saveShippingInfoQuery = `INSERT INTO shipments (first_name, last_name, address, apartment, city, state, country, zip, phone) VALUES ('${firstName}', '${lastName}', '${address}', '${apartment}', '${city}', '${stateInUnitedStates}', '${country}', '${zip}', '${phone}') RETURNING *;`
 
     db.query(saveShippingInfoQuery, (err, result) => {
@@ -87,40 +88,40 @@ userControllers.saveShippingInfo = (req, res, next) => {
 
 
 
-/**
- * @summary Helper function for Hashing Password with bcrypt before saving to the Database
- * 
- * @param {Object} password User input
- 
- */
-function hashPassword(password) {
-    return new Promise((resolve, reject) =>
-        bcrypt.hash(password, 10, (err, hash) => {
-            err ? reject(err) : resolve(hash)
-        })
-    )
-}
+// /**
+//  * @summary Helper function for Hashing Password with bcrypt before saving to the Database
+//  * 
+//  * @param {Object} password User input
 
-/**
- * @summary Helper function for verifying the Hashed Password
- * 
- * @param {Object} password User input
- * @param {Object} password_hashed Hashed password that is saved in the Database
- */
-function checkPassword(password, password_hashed) {
-    return new Promise((resolve, reject) =>
-        bcrypt.compare(password, password_hashed, (err, res) => {
-            if (err) {
-                reject(err)
-            }
-            else if (res) {
-                resolve(res)
-            } else {
-                reject(new Error('Passwords do not match.'))
-            }
-        })
-    )
-}
+//  */
+// function hashPassword(password) {
+//     return new Promise((resolve, reject) =>
+//         bcrypt.hash(password, 10, (err, hash) => {
+//             err ? reject(err) : resolve(hash)
+//         })
+//     )
+// }
+
+// /**
+//  * @summary Helper function for verifying the Hashed Password
+//  * 
+//  * @param {Object} password User input
+//  * @param {Object} password_hashed Hashed password that is saved in the Database
+//  */
+// function checkPassword(password, password_hashed) {
+//     return new Promise((resolve, reject) =>
+//         bcrypt.compare(password, password_hashed, (err, res) => {
+//             if (err) {
+//                 reject(err)
+//             }
+//             else if (res) {
+//                 resolve(res)
+//             } else {
+//                 reject(new Error('Passwords do not match.'))
+//             }
+//         })
+//     )
+// }
 
 
 module.exports = userControllers;
