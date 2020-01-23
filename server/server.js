@@ -26,15 +26,22 @@ app.post('/checkout/shipping', (req, res) => {
     address,
     apartment,
     city,
-    country,
     state,
+    country,
     zip,
     phone,
   } = req.body;
-  console.log(firstName, lastName);
+  console.log(firstName, lastName, address, apartment, city, state, country, zip, phone);
   res.status(200).json({
     'THE FIRST NAME YOU SENT ME WAS:': firstName,
     'THE LAST NAME YOU SENT ME WAS:': lastName,
+    'THE ADDRESS YOU SENT ME WAS:': address,
+    'THE APARTMENT YOU SENT ME WAS:': apartment,
+    'THE CITY YOU SENT ME WAS:': city,
+    'THE STATE YOU SENT ME WAS': state,
+    'THE COUNTRY YOU SENT ME WAS:': country,
+    'THE ZIP YOU SENT ME WAS:': zip,
+    'THE PHONE YOU SENT ME WAS:': phone,
   });
 });
 
