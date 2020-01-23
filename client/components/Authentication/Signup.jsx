@@ -9,6 +9,7 @@ class Signup extends Component {
         <h2>New Here?</h2>
         <p>Already have an account? 
           <Link to="/login">
+          &nbsp;
           <span>
            Login
           </span>

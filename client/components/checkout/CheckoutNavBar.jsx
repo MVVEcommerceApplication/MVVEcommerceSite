@@ -22,6 +22,12 @@ function CheckoutNavBar() {
           Payment
           </span>
         </Link>
+        &nbsp; > &nbsp;
+        <Link to="/checkout/confirmation">
+          <span>
+          Confirmation
+          </span>
+        </Link>
       </nav>
     </div>
   );
