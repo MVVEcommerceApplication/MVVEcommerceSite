@@ -22,11 +22,11 @@ app.post('/signup', userControllers.createUser, (req, res, next) => {
   res.status(200).json('signup successful');
 });
 
-app.post('/login', userControllers.verifyUser, (req, res, next) => {
+app.post('/login', userControllers.verifyUser, cookieControllers.setCookie, cookieControllers.setSSIDCookie, (req, res, next) => {
   res.status(200).json(res.locals.verified);
     //after successful signup will redirect to main page or to login
     res.status(200).send(res.locals.create);
-})
+});
 
 app.post('/checkout/information', (req, res) => {
   const { email } = req.body;
