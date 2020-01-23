@@ -13,8 +13,14 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
+  // after successful signup will redirect to main page or to login
+  res.status(200).json('signup successful');
+});
+
+
+app.post('/login', userControllers.verifyUser, (req, res, next) => {
+  res.status(200).json(res.locals.verified);
     //after successful signup will redirect to main page or to login
-    res.status(200).send(res.locals.create);
 })
 
 app.post('/checkout/information', (req, res) => {
@@ -22,23 +28,8 @@ app.post('/checkout/information', (req, res) => {
   res.status(200).json({ 'THE EMAIL YOU SENT ME WAS': email });
 });
 
-app.post('/checkout/shipping', (req, res) => {
-  const {
-    firstName,
-    lastName,
-    address,
-    apartment,
-    city,
-    country,
-    state,
-    zip,
-    phone,
-  } = req.body;
-  console.log(firstName, lastName);
-  res.status(200).json({
-    'THE FIRST NAME YOU SENT ME WAS:': firstName,
-    'THE LAST NAME YOU SENT ME WAS:': lastName,
-  });
+app.post('/checkout/shipping', userControllers.saveShippingInfo, (req, res) => {
+  res.status(200).send(res.locals.create);
 });
 
 // read products from database endpoints

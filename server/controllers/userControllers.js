@@ -52,6 +52,7 @@ userControllers.createUser = (req, res, next) => {
                     return next({ log: err.stack, message: 'Error executing query in createUser' });
                 }
                 res.locals.create = result.rows;
+                //console.log('result.rows[0]', result.rows[0]);
                 return next();
             });
 
@@ -67,12 +68,39 @@ userControllers.createUser = (req, res, next) => {
         })
 }
 
+userControllers.verifyUser = (req, res, next) => {
+    const { email, password } = req.body;
+    const findUserQuery = `SELECT * FROM "customer" WHERE email = '${email}' AND password = '${password}'`;
+
+
+    db.query(findUserQuery, (err, result) => {
+        if(err){
+            return next({ log: err.stack, message: 'Error executing the query in verifyUser'});
+        }
+
+        res.locals.verified = result.rows[0];
+        console.log('result.rows[0]', result.rows[0]);
+        return next();
+    });
+}
+
 userControllers.saveShippingInfo = (req, res, next) => {
     //extracting user input details from req.body
-    let { firstname, lastname, password, email } = req.body
+    const { firstName, lastName, address, apartment, city, stateInUnitedStates, country, zip, phone } = req.body;
+    
+    const saveShippingInfoQuery = `INSERT INTO shipments (first_name, last_name, address, apartment, city, state, country, zip, phone) VALUES ('${firstName}', '${lastName}', '${address}', '${apartment}', '${city}', '${stateInUnitedStates}', '${country}', '${zip}', '${phone}') RETURNING *;`
 
-    console.log("from userController.createUser req.body: ", req.body);
+    db.query(saveShippingInfoQuery, (err, result) => {
+        if (err) {
+            return next({ log: err.stack, message: 'Error executing query in saveShippingInfo' });
+        }
+        res.locals.create = result.rows;
+        return next();
+    });
+
 }
+
+
 
 /**
  * @summary Helper function for Hashing Password with bcrypt before saving to the Database

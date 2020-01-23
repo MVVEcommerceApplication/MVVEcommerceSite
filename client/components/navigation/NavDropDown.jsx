@@ -1,12 +1,5 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from 'react-router-dom';
-import Home from '../Home.jsx';
-import ShoppingCart from '../product/ShoppingCart.jsx';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line arrow-body-style
 const NavDropDown = () => {

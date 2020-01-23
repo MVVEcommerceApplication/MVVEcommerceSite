@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import history from './history';
 
 function ShippingInfo() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [apartment, setApartment] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [stateInUnitedStates, setStateInUnitedStates] = useState("");
+  const [zip, setZip] = useState("");
+  const [phone, setPhone] = useState("");
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -13,7 +20,17 @@ function ShippingInfo() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ firstName, lastName }),
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        address,
+        apartment,
+        city,
+        country,
+        stateInUnitedStates,
+        zip,
+        phone
+       }),
     })
     .then(res => res.json())
     .then(data => {
@@ -30,70 +47,15 @@ function ShippingInfo() {
       <form onSubmit={handleSubmit}>
           <input placeholder="First name" type="text" value={firstName} onChange={e => setFirstName(e.target.value)} />
           <input placeholder="Last name" type="text" value={lastName} onChange={e => setLastName(e.target.value)} />
+          <input placeholder="Address" type="text" value={address} onChange={e => setAddress(e.target.value)} />
+          <input placeholder="Apartment (optional)" type="text" value={apartment} onChange={e => setApartment(e.target.value)} />
+          <input placeholder="City" type="text" value={city} onChange={e => setCity(e.target.value)} />
+          <input placeholder="State" type="text" value={stateInUnitedStates} onChange={e => setStateInUnitedStates(e.target.value)} />
+          <input placeholder="Country" type="text" value={country} onChange={e => setCountry(e.target.value)} />
+          <input placeholder="ZIP Code" type="text" value={zip} onChange={e => setZip(e.target.value)} />
+          <input placeholder="Phone number" type="text" value={phone} onChange={e => setPhone(e.target.value)} />
           <input type="submit" value="Continue to payment" />
         </form>
-        {/* <label>First name</label>
-        &nbsp;
-        <input placeholder="First name" type="text"></input> */}
-      </div>
-      <div>
-        <label>Last name</label>
-        &nbsp;
-        <input placeholder="Last name" type="text"></input>
-      </div>
-      <div>
-        <label>Address</label>
-        &nbsp;
-        <input placeholder="Address" type="text"></input>
-      </div>
-      <div>
-        <label>Apartment, suite, etc. (optional)</label>
-        &nbsp;
-        <input placeholder="Apartment, suite, etc. (optional)" type="text"></input>
-      </div>
-      <div>
-        <label>City</label>
-        &nbsp;
-        <input placeholder="City" type="text"></input>
-      </div>
-      <div>
-        <label>Country/Region</label>
-        &nbsp;
-        <select size="1">
-          <option data-code="US" value="United States">United States</option>
-        </select>
-      </div>
-      <div>
-        <label>State</label>
-        &nbsp;
-        <select size="1">
-          <option data-alternate-values="New York" value="NY">New York</option>
-        </select>
-      </div>
-      <div>
-        <label>ZIP code</label>
-        &nbsp;
-        <input placeholder="ZIP code" type="text"></input>
-      </div>
-      <div>
-        <label>Phone</label>
-        &nbsp;
-        <input placeholder="Phone" type="text"></input>
-      </div>
-    </div>
-    <div>
-      <h4>Shipping method</h4>
-      <div>
-        <input type="radio"></input>
-        <span>Flat Rate Shipping</span>
-        &nbsp;
-        <span>Price</span>
-      </div>
-      <div>
-      <input type="radio"></input>
-        <span>USPS Regular Mail</span>
-        &nbsp;
-        <span>Price</span>
       </div>
     </div>
     </div>
