@@ -3,9 +3,9 @@ import React, { Component, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { json } from 'body-parser';
-import ShoppingCartProduct from './ShoppingCartProduct.jsx';
 import * as actions from '../../actions/actions';
 import ProductInfo from './ProductInfoComponent.jsx';
+import ShoppingCartProduct from './ShoppingCartProduct.jsx';
 
 const mapStateToProps = (state) => ({
   // add pertinent state here
@@ -39,21 +39,20 @@ class ShoppingCart extends Component {
     let i = keys.length;
 
     while (i--) {
+      // webdev server local storage data scrub
       if (localStorage.getItem(keys[i]) === 'INFO') continue;
-      // loop through values and extract
 
+      // assign arrays to variable product values
       const productValuesArray = localStorage.getItem(keys[i]);
-      console.log('productValuesArray', productValuesArray);
 
-      this.state.push(JSON.parse(productValuesArray));
-      
-      // productValuesArray.forEach((prodDetails) => this.state.push(prodDetails));
+      // remove paypal storage from shopping cart instance - quick fix edge case bug
+      if (!JSON.parse(productValuesArray).id) this.state.push(JSON.parse(productValuesArray));
     }
 
     console.log('VALUES FROM LOCAL STORAGE NOW IN STATE', this.state);
     // pass props properly to component
     const cartItem = this.state.map((item, index) => (
-      <ProductInfo
+      <ShoppingCartProduct
         image={this.state[index].image}
         key={index}
         description={this.state[index].description}

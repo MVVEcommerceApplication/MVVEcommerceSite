@@ -5,7 +5,8 @@ const ProductInfo = (props) => {
 
   const productName = JSON.stringify(props.itemName);
   const productInfo = JSON.stringify(props);
-  console.log('THIS IS PROD INFO!', productInfo);
+  console.warn('THIS IS PROD NAME!', productName);
+  console.warn('THIS IS PROPS!', props);
 
   // stringify entire shopping cart
   // const shoppingCart = JSON.stringify({ productName, productInfo });
@@ -52,7 +53,6 @@ const ProductInfo = (props) => {
             <option value="5">5</option>
           </select>
           <button onClick={() => { onAddCartClick(); }} type="button">Add To Cart</button>
-          <button onClick={() => { onRemoveCartClick(); }} type="button">Remove</button>
         </span>
       </div>
     </div>

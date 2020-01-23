@@ -11,6 +11,7 @@ import {
 import App from './components/App.jsx';
 import store from './store';
 import './assets/styling/styles.css';
+import './assets/styling/masterStyle.css';
 
 
 // Render Main Application
