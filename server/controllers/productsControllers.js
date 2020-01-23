@@ -14,7 +14,7 @@ productsController.readProducts = (req, res, next) => {
     }
     res.locals.products = products.rows;
 
-    console.log('PRODUCTS PULL FORM DB MIDDLEWARE: ', res.locals.products.rows);
+    console.log('PRODUCTS PULL FORM DB MIDDLEWARE: ', res.locals.products);
     return next();
   });
 };
