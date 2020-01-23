@@ -20,10 +20,13 @@ cookieControllers.setSSIDCookie = (req, res, next) => {
     // * if no err, set the cookie
     //console.log('ssid cookie res', result);
     // * if resuot exists, generate random num in the session table
-    console.log('**** user found from setSSID:');
+    //console.log('**** user found from setSSID:');
     res.cookie('ssid', result.rows[0].session_id, { expires: new Date(Date.now() + 900000),httpOnly: true });
     return next();
   }
 )}
+
+
+
 
 module.exports = cookieControllers;

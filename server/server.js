@@ -15,17 +15,16 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // root, send index.html
-app.get('/', cookieControllers.setSSIDCookie, (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
+app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../index.html')));
 
 app.post('/signup', userControllers.createUser, (req, res, next) => {
   // after successful signup will redirect to main page or to login
   res.status(200).json('signup successful');
 });
 
-app.post('/login', userControllers.verifyUser, sessionControllers.startSession, (req, res, next) => {
+app.post('/login', userControllers.verifyUser, cookieControllers.setSSIDCookie,  (req, res, next) => {
   res.status(200).json(res.locals.verified);
     //after successful signup will redirect to main page or to login
-    res.status(200).send(res.locals.create);
 });
 
 app.post('/checkout/information', (req, res) => {
