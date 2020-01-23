@@ -52,6 +52,7 @@ userControllers.createUser = (req, res, next) => {
                     return next({ log: err.stack, message: 'Error executing query in createUser' });
                 }
                 res.locals.create = result.rows;
+                //console.log('result.rows[0]', result.rows[0]);
                 return next();
             });
 
@@ -65,6 +66,22 @@ userControllers.createUser = (req, res, next) => {
               return next({ log: err.stack, message: 'Error executing query in createUser' });
             })
         })
+}
+
+userControllers.verifyUser = (req, res, next) => {
+    const { email, password } = req.body;
+    const findUserQuery = `SELECT * FROM "customer" WHERE email = '${email}' AND password = '${password}'`;
+
+
+    db.query(findUserQuery, (err, result) => {
+        if(err){
+            return next({ log: err.stack, message: 'Error executing the query in verifyUser'});
+        }
+
+        res.locals.verified = result.rows[0];
+        console.log('result.rows[0]', result.rows[0]);
+        return next();
+    });
 }
 
 userControllers.saveShippingInfo = (req, res, next) => {
@@ -82,6 +99,8 @@ userControllers.saveShippingInfo = (req, res, next) => {
     });
 
 }
+
+
 
 /**
  * @summary Helper function for Hashing Password with bcrypt before saving to the Database
