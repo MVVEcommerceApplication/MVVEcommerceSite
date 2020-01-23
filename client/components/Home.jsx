@@ -68,7 +68,7 @@ class Home extends Component {
     //   );
     // }
     return (
-      <div>
+      <div id="MainBodyContainer">
         <h1>Home</h1>
         {/* render item to display */}
         {display}

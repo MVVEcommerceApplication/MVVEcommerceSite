@@ -61,7 +61,7 @@ class ShoppingCart extends Component {
       />
     ));
     return (
-      <div>
+      <div id="MainBodyContainer">
         <h1>Shopping Cart</h1>
         <div>
           {cartItem}
@@ -69,17 +69,7 @@ class ShoppingCart extends Component {
         <div>
           <h5>subtotal: </h5>
         </div>
-        <div>
-          <button type="button">
-            Proceed to Checkout
-          </button>
-        </div>
-        <button
-          type="button"
-          onClick={() => this.props.addQuantity(5)}
-        >
-          Increment Quantity
-        </button>
+        <div />
         <Link to="/checkout">
           <button>Proceed to checkout</button>
         </Link>

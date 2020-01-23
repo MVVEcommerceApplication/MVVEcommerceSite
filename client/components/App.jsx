@@ -20,7 +20,7 @@ import storeReducer from '../reducers/storeReducer';
 import * as actions from '../actions/actions';
 import Signup from './Authentication/Signup.jsx';
 import Login from './Authentication/Login.jsx';
-import history from './Authentication/history'
+import history from './Authentication/history';
 
 const mapStateToProps = (state) => ({
   // add pertinent state here
